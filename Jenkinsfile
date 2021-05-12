@@ -1,5 +1,5 @@
 pipeline {
-  agent none
+  agent any
   parameters {
     booleanParam(name: "IfDeployed" , defaultValue: true)
   }
