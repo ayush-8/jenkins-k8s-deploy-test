@@ -1,7 +1,7 @@
 pipeline {
   agent any
   parameters {
-    booleanParam(name: "IfDeployed" , defaultValue: true)
+    booleanParam(name: "isDeploy" , defaultValue: true)
   }
   stages {
   
@@ -10,7 +10,7 @@ pipeline {
     stage('test'){
       when {
         expression {
-          params.IfDeployed
+          params.isDeploy
         }
       }
       
