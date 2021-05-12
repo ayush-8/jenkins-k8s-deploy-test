@@ -16,7 +16,7 @@ pipeline {
       
       steps {
         echo "test"
-        sh "kubectl apply -f deploy.yml --kubeconfig /admin.conf"
+        sh "kubectl apply -f k8s-deployment.yml --kubeconfig /admin.conf"
       }
     }
   }
