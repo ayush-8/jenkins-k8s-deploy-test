@@ -20,4 +20,16 @@ pipeline {
       }
     }
   }
+  post {
+    success {
+      echo "Successful Deployment"
+    }
+    failure {
+      echo "Failed Deployment"
+    }
+    always {
+      echo "Be Patient"
+    }
+  }
+  
 }
