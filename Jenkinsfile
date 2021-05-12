@@ -1,22 +1,35 @@
 pipeline {
-  agent none
+  agent any
   parameters {
-    booleanParam(name: "IfDeployed" , defaultValue: true)
+    booleanParam(name: "isDeploy" , defaultValue: false)
   }
+  stages {
   
 
       
     stage('test'){
       when {
         expression {
-          params.IfDeployed
+          params.isDeploy
         }
       }
       
       steps {
         echo "test"
-        sh "kubectl apply -f deploy.yml --kubeconfig /admin.conf"
+        sh "kubectl apply -f k8s-deployment.yml --kubeconfig /admin.conf"
       }
     }
   }
+  post {
+    success {
+      echo "Successful Deployment"
+    }
+    failure {
+      echo "Failed Deployment"
+    }
+    always {
+      echo "Be Patient"
+    }
+  }
+  
 }
