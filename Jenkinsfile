@@ -3,6 +3,7 @@ pipeline {
   parameters {
     booleanParam(name: "IfDeployed" , defaultValue: true)
   }
+  stages {
   
 
       
